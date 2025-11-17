@@ -6,7 +6,7 @@
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:14:56 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/17 17:38:19 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:40:39 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,18 @@ char	*check_fail(int bytes_read, char **stash)
 {
 	char		*line_to_return;
 		
-	if (bytes_read == -1 || *stash == NULL)
+	if (bytes_read == -1 || !*stash)
 	{
 		free(*stash);
+		*stash = NULL;
 		return (NULL);
 	}
 	else if (bytes_read == 0)
 	{
-		if(*stash == NULL || (*stash)[0] == '\0')
+		if(*(stash[0]) == '\0')
 		{
 			free(*stash);
+			*stash = NULL;
 			return (NULL);
 		}
 		else
@@ -52,7 +54,7 @@ char	*check_fail(int bytes_read, char **stash)
 				return (line_to_return);
 			}
 	}
-	return (NULL);
+	return ((char *)-1);
 }
 static void	join_to_stash(char **stash, char *buff)
 {
@@ -88,11 +90,14 @@ char	*get_the_line(char **stash)
 
 char	*get_next_line(int fd)
 {
-	char		buff[BUFFER_SIZE + 1];
+	char		*buff;
 	static char	*stash;
 	int			bytes_read;
 	char		*line;
 	
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buff = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	do
 	{
 		bytes_read = read (fd, buff, BUFFER_SIZE);
@@ -103,8 +108,10 @@ char	*get_next_line(int fd)
 		if (stash == NULL)
 			break;
 	} while (!ft_strchr(stash, '\n'));
+	free(buff);
 	line = check_fail(bytes_read, &stash);
-	if (line == NULL)
+	if (line == (char *)-1)
 		return (get_the_line(&stash));
+	
 	return (line);
 }
