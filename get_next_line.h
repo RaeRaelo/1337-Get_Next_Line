@@ -6,7 +6,7 @@
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:15:54 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/18 16:32:41 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:23:27 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // Defines BUFFER_SIZE to make sure we have one if not provided.
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
-#endif 
+# endif
 
 char	*get_next_line(int fd); // Main Function
 size_t	ft_strlen(const char *s);

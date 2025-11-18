@@ -6,7 +6,7 @@
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:14:38 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/18 14:50:35 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:23:57 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	char_ptr = (char *)ptr;
 	i = 0;
-	while(i < total)
+	while (i < total)
 	{
 		char_ptr[i] = '\0';
 		i++;

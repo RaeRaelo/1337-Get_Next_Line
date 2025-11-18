@@ -6,23 +6,21 @@
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:15:54 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/18 16:38:00 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:26:12 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # include <stdlib.h> // For Malloc() and Free()
 # include <unistd.h> // FOr Read()
 // Defines BUFFER_SIZE to make sure we have one if not provided.
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
-#endif 
-#ifndef FD_MAX
-# define FD_MAX 1024
-#endif
-
-
+# endif 
+# ifndef FD_MAX
+#  define FD_MAX 1024
+# endif
 
 char	*get_next_line(int fd); // Main Function
 size_t	ft_strlen(const char *s);
