@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:15:54 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/18 16:32:41 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/18 16:38:00 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 #endif 
+#ifndef FD_MAX
+# define FD_MAX 1024
+#endif
+
+
 
 char	*get_next_line(int fd); // Main Function
 size_t	ft_strlen(const char *s);
