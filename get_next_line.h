@@ -6,7 +6,7 @@
 /*   By: adahadda <adahadda@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:15:54 by adahadda          #+#    #+#             */
-/*   Updated: 2025/11/18 17:23:27 by adahadda         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:54:40 by adahadda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h> // FOr Read()
 // Defines BUFFER_SIZE to make sure we have one if not provided.
 # ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# elif BUFFER_SIZE <= 0
+#  undef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
 
